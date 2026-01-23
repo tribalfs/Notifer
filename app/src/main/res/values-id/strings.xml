@@ -31,10 +31,6 @@
 
     <string name="preference_apps_summary">Aplikasi yang pemberitahuannya harus diteruskan.</string>
 
-    <string name="preference_private_mode_title">Mode pribadi</string>
-
-    <string name="preference_private_mode_summary">Jangan kirim konten notifikasi.</string>
-
     <string name="preference_test_title">Tes</string>
 
     <string name="preference_test_summary">Kirim pemberitahuan pengujian ke semua server.</string>
@@ -68,8 +64,6 @@
     <string name="server_name_hint">Nama server</string>
 
     <string name="server_url_hint">URL server</string>
-
-    <string name="server_color_format">Format warna</string>
 
     <string name="server_delete">Hapus server</string>
 

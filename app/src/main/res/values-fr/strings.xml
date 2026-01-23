@@ -31,10 +31,6 @@
 
     <string name="preference_apps_summary">Applications dont les notifications doivent être transférées.</string>
 
-    <string name="preference_private_mode_title">Mode privé</string>
-
-    <string name="preference_private_mode_summary">Ne pas envoyer le contenu de la notification.</string>
-
     <string name="preference_test_title">Test</string>
 
     <string name="preference_test_summary">Envoyez une notification de test à tous les serveurs.</string>
@@ -68,8 +64,6 @@
     <string name="server_name_hint">Nom du serveur</string>
 
     <string name="server_url_hint">URL du serveur</string>
-
-    <string name="server_color_format">Format couleur</string>
 
     <string name="server_delete">Supprimer le serveur</string>
 

@@ -1,66 +1,54 @@
 package de.dlyt.yanndroid.notifer.utils;
 
+import android.util.Pair;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.List;
 
+import de.dlyt.yanndroid.notifer.model.NotiPacket;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class HttpRequest {
 
-    public static void post(String url, JSONObject json) {
-        new Thread(() -> {
+    public static void postAll(List<Preferences.ServerInfo> servers, NotiPacket notification) {
+        OkHttpClient client = new OkHttpClient();
+        for (Preferences.ServerInfo server : servers) {
             try {
-                new OkHttpClient().newCall(
-                        new Request.Builder()
-                                .url(url)
-                                .post(RequestBody.create(
-                                        json.toString(),
-                                        MediaType.parse("application/json; charset=utf-8"))
-                                ).build()
-                ).execute();
+                String body = notification.toJsonString(server.inclContent);
+                if (!server.secretKey.isEmpty()) {
+                    Pair<String, String> iv_ciphertext = Crypto.encrypt(body, server.secretKey);
+                    JSONObject jsonBody = new JSONObject();
+                    jsonBody.put("iv", iv_ciphertext.first);
+                    jsonBody.put("body", iv_ciphertext.second);
+                    body = jsonBody.toString();
+                }
+                post(client, server.url, body);
+            } catch (JSONException | GeneralSecurityException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void post(OkHttpClient client, String url, String body) {
+        new Thread(() -> {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(RequestBody.create(body, MediaType.parse("application/json; charset=utf-8")))
+                    .build();
+
+            try (Response response = client.newCall(request).execute()) {
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }).start();
-    }
-
-    public static JSONObject makeBody(int color, CharSequence label, String packageName, int id, long time, boolean ongoing, String template, boolean removed, String title, String text, String subText, String titleBig, String textBig, boolean progressIndeterminate, int progressMax, int progress, int dnd, boolean privateMode) throws JSONException {
-        JSONObject body = new JSONObject();
-
-        JSONObject colors = new JSONObject();
-        colors.put("hex", ColorUtil.toHex(color));
-        colors.put("rgb", ColorUtil.toRGB(color));
-        colors.put("hsv", ColorUtil.toHSV(color));
-        colors.put("int", color);
-
-        body.put("color", colors);
-
-        body.put("id", id);
-        body.put("time", time);
-        body.put("ongoing", ongoing);
-        body.put("removed", removed);
-        body.put("progress_indeterminate", progressIndeterminate);
-        body.put("progress_max", progressMax);
-        body.put("progress", progress);
-        body.put("dnd", dnd);
-
-        if (!privateMode) {
-            body.put("label", label);
-            body.put("package", packageName);
-            body.put("template", template);
-            body.put("title", title);
-            body.put("text", text);
-            body.put("sub_text", subText);
-            body.put("title_big", titleBig);
-            body.put("text_big", textBig);
-        }
-
-        return body;
     }
 
 }

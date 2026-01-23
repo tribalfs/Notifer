@@ -31,10 +31,6 @@
 
     <string name="preference_apps_summary">Apps, deren Benachrichtigungen weitergeleitet werden sollen.</string>
 
-    <string name="preference_private_mode_title">Privater Modus</string>
-
-    <string name="preference_private_mode_summary">Inhalt der Benachrichtigung nicht senden.</string>
-
     <string name="preference_test_title">Prüfen</string>
 
     <string name="preference_test_summary">Senden Sie eine Testbenachrichtigung an alle Server.</string>
@@ -68,8 +64,6 @@
     <string name="server_name_hint">Server name</string>
 
     <string name="server_url_hint">Server-URL</string>
-
-    <string name="server_color_format">Farbformat</string>
 
     <string name="server_delete">Server löschen</string>
 

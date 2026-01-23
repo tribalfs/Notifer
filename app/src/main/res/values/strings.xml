@@ -21,9 +21,6 @@
     <string name="preference_servers_summary">Http servers to which notifications should be sent.</string>
     <string name="preference_apps_title">Apps</string>
     <string name="preference_apps_summary">Apps whose notifications should be forwarded.</string>
-    <string name="preference_private_mode_key" translatable="false">private_mode</string>
-    <string name="preference_private_mode_title">Private mode</string>
-    <string name="preference_private_mode_summary">Don\'t send content of notification.</string>
     <string name="preference_test_key" translatable="false">test_servers</string>
     <string name="preference_test_title">Test</string>
     <string name="preference_test_summary">Send a test notification to all the servers.</string>
@@ -44,7 +41,10 @@
     <string name="server_edit">Edit server</string>
     <string name="server_name_hint">Server name</string>
     <string name="server_url_hint">Server URL</string>
-    <string name="server_color_format">Color format</string>
+    <string name="server_incl_content_label">Include content</string>
+    <string name="server_secret_key_hint">Secret Key (optional)</string>
+    <string name="server_secret_key_clipboard">Secret key copied to clipboard</string>
+    <string name="server_generate_key_failed">Failed to generate keys</string>
     <string name="server_delete">Delete server</string>
     <string name="delete">Delete</string>
 

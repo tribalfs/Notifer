@@ -1,9 +1,7 @@
 package de.dlyt.yanndroid.notifer;
 
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
@@ -14,13 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.SwitchPreferenceCompat;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
-
+import de.dlyt.yanndroid.notifer.model.NotiPacket;
 import de.dlyt.yanndroid.notifer.utils.HttpRequest;
 import de.dlyt.yanndroid.notifer.utils.Preferences;
 import dev.oneuiproject.oneui.layout.ToolbarLayout;
@@ -129,36 +122,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private void sendTestNotification() {
-            try {
-                List<Preferences.ServerInfo> mServers = new Preferences(mContext).getServers(null);
-
-                JSONObject body = HttpRequest.makeBody(
-                        Color.YELLOW,
-                        getString(R.string.app_name),
-                        mContext.getPackageName(),
-                        0,
-                        System.currentTimeMillis(),
-                        false,
-                        null,
-                        false,
-                        "Test Notification",
-                        "This is a test notification",
-                        null,
-                        null,
-                        null,
-                        false,
-                        0,
-                        0,
-                        NotificationManager.INTERRUPTION_FILTER_ALL,
-                        ((SwitchPreferenceCompat) findPreference(getString(R.string.preference_private_mode_key))).isChecked()
-                );
-
-                for (Preferences.ServerInfo mServer : mServers) {
-                    HttpRequest.post(mServer.url, body);
-                }
-            } catch (JSONException | NullPointerException e) {
-                e.printStackTrace();
-            }
+            HttpRequest.postAll(new Preferences(mContext).getServers(null), NotiPacket.testNotiPacket(mContext));
         }
 
         private void removeTipCard() {

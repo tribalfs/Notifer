@@ -31,10 +31,6 @@
 
     <string name="preference_apps_summary">Aplicaciones cuyas notificaciones deben reenviarse.</string>
 
-    <string name="preference_private_mode_title">Modo privado</string>
-
-    <string name="preference_private_mode_summary">No enviar el contenido de la notificación.</string>
-
     <string name="preference_test_title">Prueba</string>
 
     <string name="preference_test_summary">Envíe una notificación de prueba a todos los servidores.</string>
@@ -68,8 +64,6 @@
     <string name="server_name_hint">Nombre del servidor</string>
 
     <string name="server_url_hint">URL del servidor</string>
-
-    <string name="server_color_format">formato de color</string>
 
     <string name="server_delete">Eliminar servidor</string>
 

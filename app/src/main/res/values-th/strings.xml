@@ -31,10 +31,6 @@
 
     <string name="preference_apps_summary">แอปที่ควรส่งต่อการแจ้งเตือน</string>
 
-    <string name="preference_private_mode_title">โหมดส่วนตัว</string>
-
-    <string name="preference_private_mode_summary">ไม่ส่งเนื้อหาการแจ้งเตือน</string>
-
     <string name="preference_test_title">ทดสอบ</string>
 
     <string name="preference_test_summary">ส่งการแจ้งเตือนการทดสอบไปยังเซิร์ฟเวอร์ทั้งหมด</string>
@@ -68,8 +64,6 @@
     <string name="server_name_hint">ชื่อเซิร์ฟเวอร์</string>
 
     <string name="server_url_hint">URL ของเซิร์ฟเวอร์</string>
-
-    <string name="server_color_format">รูปแบบสี</string>
 
     <string name="server_delete">ลบเซิร์ฟเวอร์</string>
 

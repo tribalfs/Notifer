@@ -31,10 +31,6 @@
 
     <string name="preference_apps_summary">Aplicativos cujas notificações devem ser encaminhadas.</string>
 
-    <string name="preference_private_mode_title">Modo privado</string>
-
-    <string name="preference_private_mode_summary">Não enviar o conteúdo da notificação.</string>
-
     <string name="preference_test_title">Teste</string>
 
     <string name="preference_test_summary">Envie uma notificação de teste para todos os servidores.</string>
@@ -68,8 +64,6 @@
     <string name="server_name_hint">Nome do servidor</string>
 
     <string name="server_url_hint">URL do servidor</string>
-
-    <string name="server_color_format">formato de cor</string>
 
     <string name="server_delete">Excluir servidor</string>
 

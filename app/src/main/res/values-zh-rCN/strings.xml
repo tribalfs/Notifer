@@ -31,10 +31,6 @@
 
     <string name="preference_apps_summary">应转发其通知的应用程序。</string>
 
-    <string name="preference_private_mode_title">私人模式</string>
-
-    <string name="preference_private_mode_summary">不要发送通知内容。</string>
-
     <string name="preference_test_title">测试</string>
 
     <string name="preference_test_summary">向所有服务器发送测试通知。</string>
@@ -68,8 +64,6 @@
     <string name="server_name_hint">服务器名称</string>
 
     <string name="server_url_hint">服务器地址</string>
-
-    <string name="server_color_format">颜色格式</string>
 
     <string name="server_delete">删除服务器</string>
 
